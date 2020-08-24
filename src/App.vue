@@ -1,26 +1,32 @@
-<template lang="pug">
-  div#app
-    img(src="./assets/logo.png")
-    h1 Welcome from pug & sass
+<template>
+    <div id="wrap">
+        <TheHeader/>
+        <div id="main-container" class="container main-container">
+            <router-view/>
+        </div>
+        <TheFooter/>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'App'
-  }
+    import TheHeader from '@/components/layouts/TheHeader'
+    import TheFooter from '@/components/layouts/TheFooter'
+
+    export default {
+        name: 'App',
+        components: {
+            TheHeader,
+            TheFooter
+        }
+    }
 </script>
 
 <style lang="scss">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 200px;
-
-    h1 {
-      color: #42b983;
-    }
-  }
+    $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+    $fa-font-path: "~font-awesome/fonts/";
+    @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+    @import "~font-awesome/scss/font-awesome";
+    @import '~simplemde/dist/simplemde.min.css';
+    @import '~highlight.js/styles/paraiso-dark.css';
+    @import "~animate.css/animate.min.css";
 </style>
